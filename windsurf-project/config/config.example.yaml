@@ -1,0 +1,144 @@
+# Hidden Job Market Intelligence System - Configuration
+# Copy to config.yaml and customize
+
+# =============================================================================
+# TARGET PROFILE
+# =============================================================================
+profile:
+  name: "Backend/Data Engineer"
+  
+  # Primary role keywords (exact match preferred)
+  target_roles:
+    - "backend engineer"
+    - "data engineer"
+    - "ml engineer"
+    - "machine learning engineer"
+    - "platform engineer"
+    - "software engineer"
+    - "python developer"
+    - "data scientist"
+    - "ai engineer"
+  
+  # Seniority levels to include
+  seniority:
+    - "senior"
+    - "staff"
+    - "principal"
+    - "lead"
+    - "mid"
+  
+  # Location preferences
+  locations:
+    preferred:
+      - "remote"
+      - "san francisco"
+      - "new york"
+      - "austin"
+      - "seattle"
+      - "london"
+      - "berlin"
+    exclude:
+      - "intern"
+      - "internship"
+
+# =============================================================================
+# DISCOVERY SETTINGS
+# =============================================================================
+discovery:
+  # Google search settings
+  google:
+    results_per_query: 50
+    delay_between_queries_sec: 30  # Avoid rate limiting
+    
+  # Domain filtering
+  domains:
+    # Minimum domain age (days) - filters fly-by-night companies
+    min_age_days: 180
+    
+    # Skip these TLDs (often low quality)
+    skip_tlds:
+      - ".info"
+      - ".biz"
+      - ".xyz"
+    
+    # Skip domains containing these strings
+    blocklist_patterns:
+      - "job-board"
+      - "careers-page"
+      - "recruitment"
+      - "staffing"
+      - "freelance"
+
+# =============================================================================
+# EXTRACTION SETTINGS
+# =============================================================================
+extraction:
+  # Request settings
+  requests:
+    timeout_sec: 15
+    max_retries: 3
+    delay_min_sec: 2
+    delay_max_sec: 5
+    
+  # User agent (identify yourself)
+  user_agent: "HiddenJobMarketBot/1.0 (Personal Job Search; Contact: your@email.com)"
+  
+  # robots.txt compliance
+  robots:
+    respect: true
+    cache_hours: 24
+  
+  # Page limits per domain
+  limits:
+    max_pages_per_domain: 10
+    max_depth: 2
+
+# =============================================================================
+# SCORING WEIGHTS
+# =============================================================================
+scoring:
+  # Category weights (must sum to 1.0)
+  weights:
+    role_match: 0.30
+    tech_match: 0.25
+    hiring_signals: 0.20
+    company_signals: 0.15
+    recency: 0.10
+  
+  # Minimum score to be considered a lead (0-100)
+  min_lead_score: 40
+  
+  # High-priority threshold
+  high_priority_score: 70
+
+# =============================================================================
+# OUTPUT SETTINGS
+# =============================================================================
+output:
+  # Database
+  database:
+    path: "data/leads.db"
+    
+  # CSV exports
+  csv:
+    output_dir: "output/reports"
+    include_low_scores: false
+    
+  # Alerts (optional)
+  alerts:
+    enabled: false
+    webhook_url: ""  # Slack/Discord webhook
+    email: ""
+
+# =============================================================================
+# SCHEDULING (Optional)
+# =============================================================================
+schedule:
+  # Run discovery daily at this time
+  discovery_time: "08:00"
+  
+  # Run extraction after discovery
+  extraction_delay_min: 5
+  
+  # Change detection interval (hours)
+  change_detection_hours: 24

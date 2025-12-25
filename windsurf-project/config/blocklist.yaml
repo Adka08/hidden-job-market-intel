@@ -1,0 +1,117 @@
+# Domain Blocklist
+# Skip these domains during discovery and extraction
+
+# =============================================================================
+# JOB BOARDS & AGGREGATORS (Explicitly excluded per requirements)
+# =============================================================================
+job_boards:
+  - "linkedin.com"
+  - "indeed.com"
+  - "glassdoor.com"
+  - "monster.com"
+  - "ziprecruiter.com"
+  - "careerbuilder.com"
+  - "dice.com"
+  - "simplyhired.com"
+  - "snagajob.com"
+  - "flexjobs.com"
+  - "remote.co"
+  - "weworkremotely.com"
+  - "remoteok.com"
+  - "angel.co"
+  - "wellfound.com"
+  - "hired.com"
+  - "triplebyte.com"
+  - "otta.com"
+  - "levels.fyi"
+  - "builtin.com"
+  - "themuse.com"
+  - "idealist.org"
+  - "stackoverflow.com/jobs"
+  - "github.com/jobs"
+  - "ycombinator.com/jobs"
+  - "news.ycombinator.com"
+
+# =============================================================================
+# STAFFING & RECRUITMENT AGENCIES
+# =============================================================================
+staffing_agencies:
+  - "roberthalf.com"
+  - "randstad.com"
+  - "manpower.com"
+  - "kellyservices.com"
+  - "adecco.com"
+  - "expresspros.com"
+  - "spherion.com"
+  - "teksystems.com"
+  - "insight.com"
+  - "cybercoders.com"
+  - "hireright.com"
+  - "toptal.com"
+  - "upwork.com"
+  - "fiverr.com"
+  - "freelancer.com"
+
+# =============================================================================
+# SOCIAL MEDIA & GENERAL PLATFORMS
+# =============================================================================
+social_platforms:
+  - "twitter.com"
+  - "x.com"
+  - "facebook.com"
+  - "instagram.com"
+  - "tiktok.com"
+  - "reddit.com"
+  - "youtube.com"
+  - "medium.com"
+  - "substack.com"
+  - "quora.com"
+
+# =============================================================================
+# NEWS & MEDIA
+# =============================================================================
+news_media:
+  - "techcrunch.com"
+  - "forbes.com"
+  - "bloomberg.com"
+  - "reuters.com"
+  - "wsj.com"
+  - "nytimes.com"
+  - "bbc.com"
+  - "cnn.com"
+  - "theverge.com"
+  - "wired.com"
+  - "arstechnica.com"
+  - "venturebeat.com"
+
+# =============================================================================
+# GOVERNMENT & EDUCATION (Usually different hiring process)
+# =============================================================================
+gov_edu:
+  - ".gov"
+  - ".edu"
+  - ".mil"
+  - "usajobs.gov"
+
+# =============================================================================
+# LOW-QUALITY PATTERNS
+# =============================================================================
+low_quality_patterns:
+  # Domain name patterns (regex)
+  - ".*-jobs\\..*"
+  - ".*careers-.*"
+  - ".*hiring-.*"
+  - ".*recruitment.*"
+  - ".*staffing.*"
+  - ".*job-search.*"
+  - ".*find-jobs.*"
+  - ".*employment.*"
+  
+# =============================================================================
+# KNOWN SPAM / SCRAPER TRAPS
+# =============================================================================
+spam_traps:
+  - "example.com"
+  - "test.com"
+  - "localhost"
+  - "127.0.0.1"

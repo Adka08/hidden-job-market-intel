@@ -1,0 +1,242 @@
+# Tech Keywords with Relevance Weights
+# Weight: 1.0 = highly relevant, 0.5 = moderately relevant, 0.2 = nice-to-have
+
+# =============================================================================
+# PROGRAMMING LANGUAGES
+# =============================================================================
+languages:
+  python:
+    weight: 1.0
+    aliases: ["py", "python3"]
+  sql:
+    weight: 1.0
+    aliases: ["postgresql", "postgres", "mysql", "bigquery", "snowflake"]
+  java:
+    weight: 0.7
+    aliases: ["jvm"]
+  scala:
+    weight: 0.8
+    aliases: []
+  go:
+    weight: 0.8
+    aliases: ["golang"]
+  rust:
+    weight: 0.6
+    aliases: []
+  typescript:
+    weight: 0.5
+    aliases: ["ts"]
+  javascript:
+    weight: 0.4
+    aliases: ["js", "node", "nodejs"]
+
+# =============================================================================
+# DATA & ML FRAMEWORKS
+# =============================================================================
+data_ml:
+  # Data Processing
+  spark:
+    weight: 1.0
+    aliases: ["pyspark", "apache spark"]
+  airflow:
+    weight: 1.0
+    aliases: ["apache airflow"]
+  dbt:
+    weight: 0.9
+    aliases: ["data build tool"]
+  kafka:
+    weight: 0.9
+    aliases: ["apache kafka"]
+  flink:
+    weight: 0.8
+    aliases: ["apache flink"]
+  dagster:
+    weight: 0.8
+    aliases: []
+  prefect:
+    weight: 0.7
+    aliases: []
+  
+  # ML/AI
+  pytorch:
+    weight: 1.0
+    aliases: ["torch"]
+  tensorflow:
+    weight: 0.9
+    aliases: ["tf"]
+  scikit-learn:
+    weight: 0.8
+    aliases: ["sklearn"]
+  mlflow:
+    weight: 0.9
+    aliases: []
+  kubeflow:
+    weight: 0.8
+    aliases: []
+  ray:
+    weight: 0.8
+    aliases: []
+  huggingface:
+    weight: 1.0
+    aliases: ["transformers", "hf"]
+  langchain:
+    weight: 0.9
+    aliases: []
+  llm:
+    weight: 1.0
+    aliases: ["large language model", "gpt", "llama"]
+
+# =============================================================================
+# INFRASTRUCTURE & CLOUD
+# =============================================================================
+infrastructure:
+  aws:
+    weight: 0.9
+    aliases: ["amazon web services", "s3", "ec2", "lambda", "redshift", "sagemaker"]
+  gcp:
+    weight: 0.9
+    aliases: ["google cloud", "bigquery", "vertex ai", "dataflow"]
+  azure:
+    weight: 0.7
+    aliases: ["microsoft azure"]
+  kubernetes:
+    weight: 0.8
+    aliases: ["k8s"]
+  docker:
+    weight: 0.7
+    aliases: ["containers"]
+  terraform:
+    weight: 0.6
+    aliases: ["iac"]
+  databricks:
+    weight: 1.0
+    aliases: []
+
+# =============================================================================
+# DATABASES
+# =============================================================================
+databases:
+  postgresql:
+    weight: 0.9
+    aliases: ["postgres"]
+  mongodb:
+    weight: 0.6
+    aliases: ["mongo"]
+  redis:
+    weight: 0.6
+    aliases: []
+  elasticsearch:
+    weight: 0.7
+    aliases: ["elastic", "opensearch"]
+  clickhouse:
+    weight: 0.8
+    aliases: []
+  duckdb:
+    weight: 0.7
+    aliases: []
+  pinecone:
+    weight: 0.8
+    aliases: []
+  weaviate:
+    weight: 0.7
+    aliases: []
+  chromadb:
+    weight: 0.7
+    aliases: ["chroma"]
+
+# =============================================================================
+# HIRING SIGNAL KEYWORDS
+# =============================================================================
+hiring_signals:
+  strong:
+    weight: 1.0
+    keywords:
+      - "we're hiring"
+      - "we are hiring"
+      - "join our team"
+      - "open positions"
+      - "open roles"
+      - "career opportunities"
+      - "now hiring"
+      - "come work with us"
+      - "growing team"
+      - "expanding team"
+  
+  moderate:
+    weight: 0.6
+    keywords:
+      - "careers"
+      - "jobs"
+      - "work with us"
+      - "join us"
+      - "opportunities"
+  
+  funding_growth:
+    weight: 0.8
+    keywords:
+      - "series a"
+      - "series b"
+      - "series c"
+      - "raised"
+      - "funding"
+      - "backed by"
+      - "yc"
+      - "y combinator"
+      - "a]6z"
+      - "sequoia"
+      - "accel"
+
+# =============================================================================
+# REMOTE WORK INDICATORS
+# =============================================================================
+remote_indicators:
+  positive:
+    weight: 1.0
+    keywords:
+      - "remote"
+      - "remote-first"
+      - "fully remote"
+      - "work from anywhere"
+      - "distributed team"
+      - "remote friendly"
+      - "wfh"
+      - "work from home"
+  
+  hybrid:
+    weight: 0.5
+    keywords:
+      - "hybrid"
+      - "flexible"
+      - "remote optional"
+
+# =============================================================================
+# NEGATIVE SIGNALS (Reduce Score)
+# =============================================================================
+negative_signals:
+  # Likely not a direct hire
+  agency_indicators:
+    penalty: -0.5
+    keywords:
+      - "staffing"
+      - "recruitment agency"
+      - "consulting firm"
+      - "contractor"
+      - "contract only"
+  
+  # Not target level
+  level_mismatch:
+    penalty: -0.3
+    keywords:
+      - "intern"
+      - "internship"
+      - "entry level"
+      - "junior"  # Remove if targeting junior roles
+  
+  # Outdated tech
+  legacy_tech:
+    penalty: -0.2
+    keywords:
+      - "cobol"
+      - "fortran"
+      - "vb6"
+      - "visual basic"
